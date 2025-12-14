@@ -10,6 +10,8 @@ namespace Best_Practices.Infraestructure.Singletons
     {
         private static VehicleCollection _instance;
 
+        public ICollection<Vehicle> Vehicles { get; set; }
+
         public static VehicleCollection Instance
         {
             get
@@ -21,8 +23,7 @@ namespace Best_Practices.Infraestructure.Singletons
                 return _instance;
             }
         }
-        public ICollection<Vehicle> Vehicles { get; set; }
-
+        
         public VehicleCollection()
         {
             Vehicles = new List<Vehicle>();
