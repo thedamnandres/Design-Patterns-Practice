@@ -6,4 +6,4 @@ services:
     image: ${DOCKER_REGISTRY-}best-practices:${TAG:-latest}
     build:
       context: .
-      dockerfile: Best Practices/Dockerfile
+      dockerfile: Dockerfile

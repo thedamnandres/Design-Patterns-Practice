@@ -27,7 +27,9 @@ namespace Best_Practices.Controllers
         public IActionResult Index()
         {
             var model = new HomeViewModel();
-            model.Vehicles = VehicleCollection.Instance.Vehicles;
+            // Esta liena no usaba el reporsitorio _vehicleRepository
+            // model.Vehicles = VehicleCollection.Instance.Vehicles;
+            model.Vehicles = _vehicleRepository.GetVehicles(); // Ahora si usamos el repositorio
             string error = Request.Query.ContainsKey("error") ? Request.Query["error"].ToString() : null;
             ViewBag.ErrorMessage = error;
 

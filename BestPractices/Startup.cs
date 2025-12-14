@@ -24,7 +24,7 @@ namespace Best_Practices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var dependencyInjection = new ServicesConfiguration();
+            var dependencyInjection = new ServicesConfiguration(Configuration); // Se pasa la configuracion al ServicesConfiguration
             services.AddControllersWithViews();
             dependencyInjection.ConfigureServices(services);
 
