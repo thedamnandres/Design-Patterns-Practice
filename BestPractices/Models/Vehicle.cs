@@ -19,6 +19,7 @@ namespace Best_Practices.Models
         public string Model { get; set; }
         public double Gas { get; set; }
         public double FuelLimit { get; set; }
+        public int Year { get; set; } // Propiedad nueva año
 
         #endregion
 
@@ -31,6 +32,23 @@ namespace Best_Practices.Models
             Brand = brand;
             Model = model;
             FuelLimit = fuelLimit;
+            ApplyDefaultProperties(); //Template Method Pattern para aplicar las propiedades por defecto
+        }
+
+        #endregion
+
+        #region Template Method Pattern
+
+        // Define el algoritmo para aplicar las propiedades por defecto
+        private void ApplyDefaultProperties()
+        {
+           Year = GetYear();
+        }
+
+        // Metodo que se puede sobreescribir para aplicar las propiedades por defecto
+        protected virtual int GetYear()
+        {
+            return DateTime.Now.Year;
         }
 
         #endregion

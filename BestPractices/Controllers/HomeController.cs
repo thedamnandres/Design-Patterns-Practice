@@ -54,6 +54,16 @@ namespace Best_Practices.Controllers
             return Redirect("/");
         }
 
+        // Factory Method Pattern para agregar el modelo Escape
+        [HttpGet]
+        public IActionResult AddEscape()
+        {
+            var factory = new FordEscapeCreator();
+            var vehicle = factory.Create();
+            _vehicleRepository.AddVehicle(vehicle);
+            return Redirect("/");
+        }
+
         [HttpGet]
         public IActionResult StartEngine(string id)
         {
